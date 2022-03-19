@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-card @click="$emit('closemobmenu', false)" class="nav">
     <v-app-bar
       color="#1976d2"
     >
@@ -9,21 +9,21 @@
       <v-spacer></v-spacer>
 
       <v-container class="search-box">
+        <input placeholder="Search" class="nav-text search-input">
         <v-icon class="search-icon">mdi-magnify</v-icon>
-        <input placeholder="   Search..." class="nav-text search-input">
       </v-container>
 
       <v-spacer></v-spacer>
 
       <v-container class="icon-box d-none d-md-flex d-xs-none">
         <v-btn icon class="nav-icon">
-          <v-badge content="4" color="red">
+          <v-badge content="5" color="red">
             <v-icon>mdi-email</v-icon>
           </v-badge>
         </v-btn>
 
         <v-btn icon class="nav-icon">
-          <v-badge content="17" color="red">
+          <v-badge content="11" color="red">
             <v-icon>mdi-bell</v-icon>
           </v-badge>
         </v-btn>
@@ -33,38 +33,51 @@
         </v-btn>
       </v-container>
 
-      <v-btn icon class="nav-icon d-flex d-xs-flex d-md-none">
+      <v-btn @click="$emit('showmobmenu', true)" icon class="nav-icon d-flex d-xs-flex d-md-none">
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
-
     </v-app-bar>
-  </v-app>
+  </v-card>
+  <MobileMenu v-if="mobileMenuVisible"></MobileMenu>
 </template>
 
 <script>
+import MobileMenu from './MobileMenu.vue'
 
 export default {
+  emits: ["showmobmenu", "closemobmenu"],
+
+  components: {
+    MobileMenu
+  },
   data: () => ({
     //
   }),
+  props: {
+    mobileMenuVisible: Boolean
+  }
 }
 </script>
 
 <style scoped>
 
+.nav {
+  cursor: default;
+}
+
 .nav-text {
-  color: white;
+  color: var(--main-light);
   padding: 0;
   margin: 0;
 }
 
 .nav-text::placeholder {
-  color: rgba(255, 255, 255, 0.35) !important;
+  color: gray !important;
 }
 
 .nav-icon {
-  color: white;
-  background-color: #1976d2;
+  color: var(--main-light);
+  background-color: var(--main-primary-base);
   margin-right: 7px;
   font-size: 20px;
 }
@@ -77,19 +90,14 @@ export default {
 .search-box {
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: var(--main-light);
   border-radius: 5px;
   height: 85%;
-  flex-shrink: 0;
   width: auto;
 }
 
-.search-box:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
 .search-icon {
-  color: white;
+  color: gray;
   margin-left: 7px;
 }
 
@@ -97,10 +105,9 @@ export default {
   width: 235px;
 }
 
-
 @media (max-width: 960px) {
   .search-input {
-  width: 100px;
+    width: 100px;
   }
 }
 
