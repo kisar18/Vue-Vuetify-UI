@@ -50,6 +50,7 @@ export default {
   right: 0;
   margin-top: 65px;
   border-radius: 0;
+  z-index: 1;
 }
 
 @media (max-width: 960px){

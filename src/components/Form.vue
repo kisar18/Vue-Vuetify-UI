@@ -1,20 +1,26 @@
 <template>
-  <v-container fluid class="form-container">
+  <v-container fluid class="form-container mt-3">
     <v-form
       class="form"
     >
       <v-text-field
         label="First name"
+        color="info"
+        variant="outlined"
         required
       ></v-text-field>
 
       <v-text-field
         label="Last name"
+        color="info"
+        variant="outlined"
         required
       ></v-text-field>
 
       <v-text-field
         label="E-mail"
+        color="info"
+        variant="outlined"
         required
       ></v-text-field>
 
@@ -48,11 +54,14 @@
         class="center-inner-elements"
       ></v-checkbox>
 
-      <v-textarea
-          label="Notes"
-          rows="1"
-          auto-grow
-      ></v-textarea>
+        <v-textarea
+            label="Notes"
+            color="info"
+            bg-color="light"
+            rows="1"
+            auto-grow
+            class="text-area"
+        ></v-textarea>
 
       <v-container class="btns">
         <v-btn
@@ -91,13 +100,12 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 .form {
   margin-top: 64px;
   width: 75%;
   cursor: default;
-
 }
 
 .form-container {

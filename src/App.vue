@@ -10,6 +10,7 @@
 import Header from './components/Header.vue'
 import Form from './components/Form.vue'
 import Footer from './components/Footer.vue'
+import FormResults from './components/FormResults.vue'
 
 export default {
   name: 'App',
@@ -17,7 +18,8 @@ export default {
   components: {
     Header,
     Form,
-    Footer
+    Footer,
+    FormResults
   },
 
   data: () => ({
