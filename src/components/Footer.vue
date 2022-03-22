@@ -31,26 +31,24 @@ export default {
 </script>
 
 <style scoped>
+  .footer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--main-primary-base);
+    color: var(--main-light);
+    width: 100%;
+    height: 7%;
+    cursor: default;
+  }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background-color: var(--main-primary-base);
-  color: var(--main-light);
-  width: 100%;
-  height: 7%;
-  cursor: default;
-}
-
-.nav-icon {
-  color: var(--main-light);
-  background-color: var(--main-primary-base);
-  margin-right: 7px;
-  font-size: 20px;
-}
-
+  .nav-icon {
+    color: var(--main-light);
+    background-color: var(--main-primary-base);
+    margin-right: 7px;
+    font-size: 20px;
+  }
 
 </style>

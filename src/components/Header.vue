@@ -60,55 +60,54 @@ export default {
 </script>
 
 <style scoped>
-
-.nav {
-  cursor: default;
-}
-
-.nav-text {
-  color: var(--main-light);
-  padding: 0;
-  margin: 0;
-}
-
-.nav-text::placeholder {
-  color: gray !important;
-}
-
-.nav-icon {
-  color: var(--main-light);
-  background-color: var(--main-primary-base);
-  margin-right: 7px;
-  font-size: 20px;
-}
-
-.icon-box {
-  display: flex;
-  width: auto;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: var(--main-light);
-  border-radius: 5px;
-  height: 85%;
-  width: auto;
-}
-
-.search-icon {
-  color: gray;
-  margin-left: 7px;
-}
-
-.search-input {
-  width: 235px;
-}
-
-@media (max-width: 960px) {
-  .search-input {
-    width: 100px;
+  .nav {
+    cursor: default;
   }
-}
+
+  .nav-text {
+    color: var(--main-light);
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-text::placeholder {
+    color: gray !important;
+  }
+
+  .nav-icon {
+    color: var(--main-light);
+    background-color: var(--main-primary-base);
+    margin-right: 7px;
+    font-size: 20px;
+  }
+
+  .icon-box {
+    display: flex;
+    width: auto;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: var(--main-light);
+    border-radius: 5px;
+    height: 85%;
+    width: auto;
+  }
+
+  .search-icon {
+    color: gray;
+    margin-left: 7px;
+  }
+
+  .search-input {
+    width: 235px;
+  }
+
+  @media (max-width: 960px) {
+    .search-input {
+      width: 100px;
+    }
+  }
 
 </style>

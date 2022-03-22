@@ -43,36 +43,35 @@ export default {
 </script>
 
 <style scoped>
-
-.mobile-menu {
-  width: 25%;
-  position: absolute;
-  right: 0;
-  margin-top: 65px;
-  border-radius: 0;
-  z-index: 1;
-}
-
-@media (max-width: 960px){
   .mobile-menu {
-    width: 50%;
+    width: 25%;
+    position: absolute;
+    right: 0;
+    margin-top: 65px;
+    border-radius: 0;
+    z-index: 1;
   }
-}
 
-.list-item {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+  @media (max-width: 960px){
+    .mobile-menu {
+      width: 60%;
+    }
+  }
 
-.btn {
-  border-radius: 0 !important;
-  font-size: 1rem;
-  height: 65px;
-}
+  .list-item {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
 
-.badge {
-  margin-right: 18px;
-}
+  .btn {
+    border-radius: 0 !important;
+    font-size: 1rem;
+    height: 65px;
+  }
+
+  .badge {
+    margin-right: 18px;
+  }
 
 </style>
