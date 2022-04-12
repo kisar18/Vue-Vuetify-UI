@@ -87,7 +87,13 @@ export default {
 
   .go-back {
     color: #1976d2;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 30px;
+    border: 3px solid #1976d2;
+    border-radius: 10px;
     text-decoration: none;
+    padding: 15px;
   }
 
   @media (max-width: 960px) {
