@@ -1,5 +1,5 @@
 <template>
-  <v-card @click="$emit('closemobmenu', false)" class="nav">
+  <v-card class="nav">
     <v-app-bar
       class="app-bar"
     >
@@ -33,7 +33,7 @@
         </v-btn>
       </v-container>
 
-      <v-btn @click="$emit('showmobmenu', true)" icon class="nav-icon d-flex d-xs-flex d-md-none">
+      <v-btn @click="$emit('showMobMenu')" icon class="nav-icon d-flex d-xs-flex d-md-none">
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
@@ -43,14 +43,11 @@
 <script>
 
 export default {
-  emits: ["showmobmenu", "closemobmenu"],
+  emits: ["showMobMenu"],
 
   data: () => ({
     //
   }),
-  props: {
-    mobileMenuVisible: Boolean
-  }
 }
 </script>
 

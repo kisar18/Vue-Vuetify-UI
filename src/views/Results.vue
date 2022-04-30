@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <Header :mobileMenuVisible="mobileMenuVisible" @showmobmenu="mobileMenuVisible = !mobileMenuVisible"></Header>
+    <Header @showMobMenu="showMobileMenu"></Header>
     <MobileMenu v-if="mobileMenuVisible"></MobileMenu>
-    <FormResults @click="closemobilemenu"></FormResults>
-    <Footer @click="closemobilemenu"></Footer>
+    <FormResults @click="closeMobileMenu"></FormResults>
+    <Footer @click="closeMobileMenu"></Footer>
   </v-app>
 </template>
 
@@ -25,10 +25,11 @@ export default {
     mobileMenuVisible: false
   }),
   methods: {
-    showmobilemenu(value) {
-      this.mobileMenuVisible = value;
+    showMobileMenu() {
+      this.mobileMenuVisible = !this.mobileMenuVisible;
     },
-    closemobilemenu() {
+
+    closeMobileMenu() {
       if(this.mobileMenuVisible) {
         this.mobileMenuVisible = false;
       }

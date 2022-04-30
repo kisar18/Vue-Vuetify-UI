@@ -103,6 +103,9 @@ export default {
     lastName: "",
     email: "",
     gender: "",
+    favouriteColor: "",
+    employed: false,
+    notes: "",
     textRules: [
       v => !!v || 'Name is required',
     ],
@@ -110,9 +113,6 @@ export default {
       v => !!v || 'E-mail is required',
       v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
-    favouriteColor: "",
-    employed: false,
-    notes: "",
   }),
 
   methods: {
