@@ -3,15 +3,15 @@
     <v-footer class="footer">
       <span>Contact us:</span>
       <v-btn
-        v-for="icon in icons"
-        :key="icon"
+        v-for="button in buttons"
+        :key="button"
         class="nav-icon"
         icon
         elevation="0"
-        :href= icon.link
+        :href= button.link
       >
         <v-icon size="24px">
-          {{ icon.name }}
+          {{ button.icon }}
         </v-icon>
       </v-btn>
     </v-footer>
@@ -22,10 +22,10 @@
 
 export default {
   data: () => ({
-    icons: [
-      {name: 'mdi-facebook', link:'https://www.facebook.com'},
-      {name: 'mdi-twitter', link: 'https://www.twitter.com'},
-      {name: 'mdi-instagram', link: 'https://www.instagram.com'}
+    buttons: [
+      {icon: 'mdi-facebook', link:'https://www.facebook.com'},
+      {icon: 'mdi-twitter', link: 'https://www.twitter.com'},
+      {icon: 'mdi-instagram', link: 'https://www.instagram.com'}
     ]
   })
 }

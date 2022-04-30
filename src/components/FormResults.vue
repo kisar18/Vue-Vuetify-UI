@@ -29,7 +29,7 @@
         <v-divider></v-divider>
         <v-list-item>
           <v-list-item-header>
-            <v-list-item-title class="list-item-text">Mood: {{ this.$route.params.mood }}</v-list-item-title>
+            <v-list-item-title class="list-item-text">Favourite color: {{ this.$route.params.favouriteColor }}</v-list-item-title>
           </v-list-item-header>
         </v-list-item>
         <v-divider></v-divider>

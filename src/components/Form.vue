@@ -4,7 +4,7 @@
       class="form"
       @submit="submitForm"
     >
-      <h2 class="title mb-2">Please fill out the form</h2>
+      <h2 class="title">Please fill out the form</h2>
       <v-text-field
         label="First name*"
         color="info"
@@ -30,7 +30,8 @@
         required
       ></v-text-field>
 
-      <v-radio-group v-model="gender" class="center-inner-elements">
+      <v-radio-group v-model="gender" class="center-inner-elements radios">
+        <v-label class="title">Gender</v-label>
         <v-radio
           label="Male"
           value="male"
@@ -46,30 +47,29 @@
       </v-radio-group>
 
       <v-container class="center-inner-elements">
-        <div>Mood</div>
-        <v-rating
-          v-model="mood"
-          :item-labels="['Sad', '', '', '', 'Happy']"
-          item-label-position="top"
-          color="blue"
-        ></v-rating>
+        <v-label>Favourite color</v-label>
+        <select class="select" v-model="favouriteColor">
+          <option value="" disabled selected>Favourite color</option>
+          <option value="Red">Red</option>
+          <option value="Green">Green</option>
+          <option value="Blue">Blue</option>
+        </select>
       </v-container>
 
       <v-checkbox
         label="Employed"
-        class="center-inner-elements"
+        class="center-inner-elements employed"
         v-model="employed"
       ></v-checkbox>
 
-        <v-textarea
-            label="Notes"
-            color="info"
-            bg-color="light"
-            rows="1"
-            auto-grow
-            class="text-area"
-            v-model="notes"
-        ></v-textarea>
+      <v-textarea
+        label="Notes"
+        color="info"
+        bg-color="light"
+        rows="1"
+        auto-grow
+        v-model="notes"
+      ></v-textarea>
 
       <v-container class="btns">
         <v-btn
@@ -110,7 +110,7 @@ export default {
       v => !!v || 'E-mail is required',
       v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
-    mood: 3,
+    favouriteColor: "",
     employed: false,
     notes: "",
   }),
@@ -125,7 +125,7 @@ export default {
             lastName: this.lastName,
             email: this.email,
             gender: this.gender,
-            mood: this.mood,
+            favouriteColor: this.favouriteColor,
             employed: this.employed,
             notes: this.notes
           }
@@ -138,7 +138,7 @@ export default {
       this.lastName = "";
       this.email = "";
       this.gender = "";
-      this.mood = 3;
+      this.favouriteColor = "";
       this.employed = false;
       this.notes = "";
     }
@@ -159,13 +159,13 @@ export default {
     display: flex;
     justify-content: center;
     cursor: default;
-    height: 100%;
   }
 
   .center-inner-elements {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .btns {
@@ -181,9 +181,30 @@ export default {
     text-align: center;
   }
 
+  .select {
+    border: 1px solid gray;
+    color: gray;
+    width: 102%;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  .employed {
+    height: 40px;
+  }
+
+  .radios {
+    height: 150px;
+  }
+
   @media (max-width: 960px){
     .form-container {
       margin-bottom: 15%;
+    }
+    .select {
+      width: 110%;
+      margin-top: 5%;
     }
   }
 
