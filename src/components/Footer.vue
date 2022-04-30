@@ -8,9 +8,10 @@
         class="nav-icon"
         icon
         elevation="0"
+        :href= icon.link
       >
         <v-icon size="24px">
-          {{ icon }}
+          {{ icon.name }}
         </v-icon>
       </v-btn>
     </v-footer>
@@ -22,9 +23,9 @@
 export default {
   data: () => ({
     icons: [
-      'mdi-facebook',
-      'mdi-twitter',
-      'mdi-instagram'
+      {name: 'mdi-facebook', link:'https://www.facebook.com'},
+      {name: 'mdi-twitter', link: 'https://www.twitter.com'},
+      {name: 'mdi-instagram', link: 'https://www.instagram.com'}
     ]
   })
 }

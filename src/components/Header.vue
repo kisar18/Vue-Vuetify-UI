@@ -1,7 +1,7 @@
 <template>
   <v-card @click="$emit('closemobmenu', false)" class="nav">
     <v-app-bar
-      color="#1976d2"
+      class="app-bar"
     >
       <v-app-bar-nav-icon class="nav-icon"></v-app-bar-nav-icon>
       <v-app-bar-title class="nav-text">Vuetify</v-app-bar-title>
@@ -38,18 +38,13 @@
       </v-btn>
     </v-app-bar>
   </v-card>
-  <MobileMenu v-if="mobileMenuVisible"></MobileMenu>
 </template>
 
 <script>
-import MobileMenu from './MobileMenu.vue'
 
 export default {
   emits: ["showmobmenu", "closemobmenu"],
 
-  components: {
-    MobileMenu
-  },
   data: () => ({
     //
   }),
@@ -62,6 +57,10 @@ export default {
 <style scoped>
   .nav {
     cursor: default;
+  }
+
+  .app-bar {
+    background-color: #1976d2;
   }
 
   .nav-text {

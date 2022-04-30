@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Header :mobileMenuVisible="mobileMenuVisible" @showmobmenu="mobileMenuVisible = !mobileMenuVisible"></Header>
+    <MobileMenu v-if="mobileMenuVisible"></MobileMenu>
     <FormResults @click="closemobilemenu"></FormResults>
     <Footer @click="closemobilemenu"></Footer>
   </v-app>
@@ -8,6 +9,7 @@
 
 <script>
 import Header from '../components/Header.vue'
+import MobileMenu from '../components/MobileMenu.vue';
 import Footer from '../components/Footer.vue'
 import FormResults from '../components/FormResults.vue'
 
@@ -15,6 +17,7 @@ export default {
   name: 'App',
   components: {
     Header,
+    MobileMenu,
     Footer,
     FormResults
   },

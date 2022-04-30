@@ -150,6 +150,7 @@ export default {
 <style scoped>
   .form {
     margin-top: 64px;
+    margin-bottom: 64px;
     width: 75%;
     cursor: default;
   }
