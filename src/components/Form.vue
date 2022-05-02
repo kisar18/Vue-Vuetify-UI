@@ -5,29 +5,29 @@
       @submit="submitForm"
     >
       <h2 class="title">Please fill out the form</h2>
+
+      <v-label v-if="firstNameError" class="warning">First name is required</v-label>
       <v-text-field
         label="First name*"
         color="info"
         variant="outlined"
         v-model="firstName"
-        :rules="textRules"
       ></v-text-field>
 
+      <v-label v-if="lastNameError" class="warning">Last name is required</v-label>
       <v-text-field
         label="Last name*"
         color="info"
         variant="outlined"
         v-model="lastName"
-        :rules="textRules"
       ></v-text-field>
 
+      <v-label v-if="emailError" class="warning">Email is required</v-label>
       <v-text-field
         label="Email*"
         color="info"
         variant="outlined"
         v-model="email"
-        :rules="emailRules"
-        required
       ></v-text-field>
 
       <v-radio-group v-model="gender" class="center-inner-elements radios">
@@ -98,6 +98,7 @@
 <script>
 
 export default {
+
   data: () => ({
     firstName: "",
     lastName: "",
@@ -106,18 +107,18 @@ export default {
     favouriteColor: "",
     employed: false,
     notes: "",
-    textRules: [
-      v => !!v || 'Name is required',
-    ],
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+/.test(v) || 'E-mail must be valid',
-    ],
+    firstNameError: false,
+    lastNameError: false,
+    emailError: false,
   }),
 
   methods: {
     submitForm() {
-      if(this.firstName != "" && this.lastName != "" && this.email != "") {
+      if(this.firstName != "" &&
+          this.lastName != "" &&
+          this.email != "" &&
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
+        ) {
         this.$router.push({ 
           name: 'results',
           params: {
@@ -131,6 +132,11 @@ export default {
           }
         });
       }
+      else {
+        if(this.firstName == "") this.firstNameError = true;
+        if(this.lastName == "") this.lastNameError = true;
+        if(this.email == "" || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email) == false) this.emailError = true;
+      }
     },
 
     clearForm() {
@@ -141,7 +147,15 @@ export default {
       this.favouriteColor = "";
       this.employed = false;
       this.notes = "";
-    }
+    },
+
+    emailErrors () {
+        const errors = []
+        if (!this.$v.email.$dirty) return errors
+        !this.$v.email.email && errors.push('Must be valid e-mail')
+        !this.$v.email.required && errors.push('E-mail is required')
+        return errors
+    },
   },
 }
 
@@ -196,6 +210,10 @@ export default {
 
   .radios {
     height: 150px;
+  }
+
+  .warning {
+    color: red;
   }
 
   @media (max-width: 960px){
