@@ -135,7 +135,11 @@ export default {
       else {
         if(this.firstName == "") this.firstNameError = true;
         if(this.lastName == "") this.lastNameError = true;
-        if(this.email == "" || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email) == false) this.emailError = true;
+        if(this.email == "" ||
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email) == false
+        ) {
+          this.emailError = true;
+        }
       }
     },
 
